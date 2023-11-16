@@ -19,11 +19,7 @@ fn main() {
         std::process::exit(1);
     }
 
-    if args.len() !=2 && !args.contains(&String::from("-ej")) {
-        eprintln!("Usage: {} [--h] [-v] [file_path]", args[0]);
-        std::process::exit(2);
-    }
-
+    // Print help
     else {
         print_help();
     }
