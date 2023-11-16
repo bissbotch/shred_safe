@@ -8,15 +8,24 @@ fn main() {
     let args: Vec<String> = env::args().collect();
 
     // Check if the help option is provided
-    if args.contains(&String::from("-h")) {
+    if args.contains(&String::from("--h")) {
         print_help();
         std::process::exit(0);
     }
 
     // Check if the correct number of arguments is provided
     if args.len() != 2 && !args.contains(&String::from("-v")) {
-        eprintln!("Usage: {} [-h] [-v] [file_path]", args[0]);
+        eprintln!("Usage: {} [--h] [-v] [file_path]", args[0]);
         std::process::exit(1);
+    }
+
+    if args.len() !=2 && !args.contains(&String::from("-ej")) {
+        eprintln!("Usage: {} [--h] [-v] [file_path]", args[0]);
+        std::process::exit(2);
+    }
+
+    else {
+        print_help();
     }
 
     // Extract the file path from the command-line arguments
